@@ -1,0 +1,38 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: us
+  refresh-installer:
+    update: false
+  network:
+    version: 2
+    ethernets:
+      eth0:
+        dhcp4: yes
+  ssh:
+    install-server: yes
+    allow-pw: yes
+  packages:
+    - sudo
+    - ca-certificates
+  storage:
+    swap:
+      size: 0
+    layout:
+      name: lvm
+  user-data:
+    disable_root: false
+    package_update: false
+    package_upgrade: false
+    preserve_hostname: false
+    hostname: ubuntu.local-domain
+    users:
+      - name: ubuntu
+        plain_text_passwd: 'password'
+        groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev, lxd, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+
