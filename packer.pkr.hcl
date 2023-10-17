@@ -41,7 +41,7 @@ source "qemu" "ubuntu_22_04_2" {
 }
 
 build {
-    sources = ["source.qemu.ubuntu_22_04_2"]
+    sources = ["source.qemu.ubuntu_22_04_2.qcow2"]
 
     post-processor "vagrant" {
         keep_input_artifact = true
